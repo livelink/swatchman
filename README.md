@@ -56,7 +56,7 @@ Swatchman::Image.new('/some/file/path.png').palette(size: 5).swatches
 
 ##### Returns
 
-`Swatchman::Image` — image instance.
+* `Swatchman::Image` — Image instance.
 
 #### `palette(size: 3)`
 
@@ -66,7 +66,7 @@ Swatchman::Image.new('/some/file/path.png').palette(size: 5).swatches
 
 ##### Returns
 
-`Swatchman::Palette` — palette instance.
+* `Swatchman::Palette` — Palette instance.
 
 
 ### `Swatchman::Palette`
@@ -80,13 +80,13 @@ Swatchman::Image.new('/some/file/path.png').palette(size: 5).swatches
 
 ##### Returns
 
-`Swatchman::Palette` — palette instance.
+* `Swatchman::Palette` — Palette instance.
 
 #### `swatches`
 
 ##### Returns
 
-`Array` — array of `Swatchman::Swatch` instances.
+* `Array` — Array of `Swatchman::Swatch` instances.
 
 
 ### `Swatchman::Swatch`
@@ -95,24 +95,25 @@ Swatchman::Image.new('/some/file/path.png').palette(size: 5).swatches
 
 ##### Parameters
 
-* `color`: the hex color value.
-* `frequency`: the frequency is appears within the image.
+* `color` — The hex color value.
+* `frequency` — The frequency it appears within the image.
 
 ##### Returns
 
-`Swatchman::Swatch` instance.
+* `Swatchman::Swatch` — Swatch instance.
 
 #### `color`
 
 ##### Returns
 
-`String` — hex value.
+* `String` — Hex color value.
 
 #### `frequency`
 
 ##### Returns
 
-`Integer` — the frequency.
+* `Integer` — The frequency it appears.
+
 
 ## Development
 
