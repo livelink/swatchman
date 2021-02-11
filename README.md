@@ -24,7 +24,7 @@ Or install it yourself as:
 
 ## Usage
 
-Swatchman will return 3 swatches by default. Specify the `swatches` named parameter to adjust the number of swatches returned.
+Swatchman will return 3 swatches by default. Specify the `size` named parameter when calling the `palette` method to adjust the number of swatches returned.
 
 ### From a URL
 
