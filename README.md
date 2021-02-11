@@ -82,6 +82,12 @@ Swatchman::Image.new('/some/file/path.png').palette(size: 5).swatches
 
 * `Swatchman::Palette` — Palette instance.
 
+#### `size`
+
+##### Returns
+
+* `Integer` — The number of swatches in the palette.
+
 #### `swatches`
 
 ##### Returns

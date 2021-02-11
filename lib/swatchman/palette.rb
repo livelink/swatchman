@@ -2,7 +2,7 @@ require 'swatchman/swatch'
 
 module Swatchman
   class Palette
-    MATCH = /([0-9]+)\:.*(\#[0-9ABCDEF]{6})/
+    attr_reader :size
     
     def initialize(histogram, size)
       @histogram = histogram
@@ -10,20 +10,25 @@ module Swatchman
     end
 
     def swatches
-      swatches = histogram.scan(MATCH).map do |frequency, color|
-        Swatch.new(color, frequency.to_i)
-      end
-      
-      total = swatches.map(&:frequency).reduce(:+).to_f
-
-      swatches
-        .sort_by { |swatch| swatch.frequency / total }
-        .reverse
-        .slice(0, size)
+      histogram_swatches.sort_by do |swatch|
+        swatch.frequency / total
+      end.reverse.slice(0, size)
     end
 
     private
 
-    attr_reader :histogram, :size
+    attr_reader :histogram
+    
+    def histogram_swatches
+      @histogram_swatches ||= histogram.scan(
+        /([0-9]+)\:.*(\#[0-9ABCDEF]{6})/
+      ).map do |frequency, color|
+        Swatch.new(color, frequency.to_i)
+      end
+    end
+    
+    def total
+      @total ||= histogram_swatches.map(&:frequency).reduce(:+).to_f
+    end
   end
 end

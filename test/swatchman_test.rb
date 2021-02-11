@@ -6,8 +6,10 @@ class SwatchmanTest < Swatchman::Test
   end
 
   test "can find swatches" do
-    swatches = Swatchman::Image.new(fixture('samuel.png')).palette.swatches
+    palette = Swatchman::Image.new(fixture('samuel.png')).palette
+    swatches = palette.swatches
 
+    assert_equal 3, palette.size
     assert_equal 3, swatches.size
 
     assert_equal '#d9ad3f', swatches[0].color
@@ -20,9 +22,11 @@ class SwatchmanTest < Swatchman::Test
     assert_equal 21809, swatches[2].frequency
   end
 
-  test "can find swatches with custom size" do
-    swatches = Swatchman::Image.new(fixture('samuel.png')).palette(size: 5).swatches
+  test "can find swatches with custom palette size" do
+    palette = Swatchman::Image.new(fixture('samuel.png')).palette(size: 5)
+    swatches = palette.swatches
 
+    assert_equal 5, palette.size
     assert_equal 5, swatches.size
 
     assert_equal '#dbae3e', swatches[0].color
