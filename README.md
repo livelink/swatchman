@@ -2,6 +2,10 @@
 
 Simple gem for extracting swatches from an image with MiniMagick. Allows you to specify the number of swatches to extract.
 
+## Dependencies
+
+This gem makes use of the `mini_magick` gem, and therefore requires an installation of ImageMagick.
+
 ## Installation
 
 Add this line to your application's Gemfile:
@@ -40,6 +44,13 @@ Swatchman::Image.new('/some/file/path.png').palette.swatches
 Swatchman::Image.new('/some/file/path.png').palette(size: 5).swatches
 ```
 
+### The statch instances
+
+The `swatches` method returns an array of swatch instances. These instances have the following methods:
+
+* `color`: the hex color value.
+* `frequency`: the frequency is appears within the image.
+
 ## Development
 
 After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake test` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
@@ -48,7 +59,7 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/swatchman. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [code of conduct](https://github.com/[USERNAME]/swatchman/blob/master/CODE_OF_CONDUCT.md).
+Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/swatchman. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [code of conduct](https://github.com/livelink/swatchman/blob/master/CODE_OF_CONDUCT.md).
 
 
 ## License
