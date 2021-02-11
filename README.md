@@ -44,12 +44,75 @@ Swatchman::Image.new('/some/file/path.png').palette.swatches
 Swatchman::Image.new('/some/file/path.png').palette(size: 5).swatches
 ```
 
-### The statch instances
+## API
 
-The `swatches` method returns an array of swatch instances. These instances have the following methods:
+### `Swatchman::Image`
+
+#### `new(path_or_url)`
+
+##### Parameters
+
+* `path_or_url` (String) — A local file system path, or URL.
+
+##### Returns
+
+`Swatchman::Image` — image instance.
+
+#### `palette(size: 3)`
+
+##### Parameters
+
+* `size` (Integer) — The amount of swatches this palette should contain. Defaults to `3`.
+
+##### Returns
+
+`Swatchman::Palette` — palette instance.
+
+
+### `Swatchman::Palette`
+
+#### `new(histogram, size)`
+
+##### Parameters
+
+* `histogram` (String) — An ImageMagick histogram string.
+* `size` (String) — The amount of swatches in the palette.
+
+##### Returns
+
+`Swatchman::Palette` — palette instance.
+
+#### `swatches`
+
+##### Returns
+
+`Array` — array of `Swatchman::Swatch` instances.
+
+
+### `Swatchman::Swatch`
+
+#### `new(color, frequency)`
+
+##### Parameters
 
 * `color`: the hex color value.
 * `frequency`: the frequency is appears within the image.
+
+##### Returns
+
+`Swatchman::Swatch` instance.
+
+#### `color`
+
+##### Returns
+
+`String` — hex value.
+
+#### `frequency`
+
+##### Returns
+
+`Integer` — the frequency.
 
 ## Development
 
