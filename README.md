@@ -1,8 +1,6 @@
 # Swatchman
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/swatchman`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+Simple gem for extracting swatches from an image with MiniMagick. Allows you to specify the number of swatches to extract.
 
 ## Installation
 
@@ -22,7 +20,25 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+Swatchman will return 3 swatches by default. Specify the `swatches` named parameter to adjust the number of swatches returned.
+
+### From a URL
+
+```ruby
+Swatchman::Image.new('https://example.com/file.jpg').palette.swatches
+```
+
+### From a File
+
+```ruby
+Swatchman::Image.new('/some/file/path.png').palette.swatches
+```
+
+### Custom number of swatches
+
+```ruby
+Swatchman::Image.new('/some/file/path.png').palette(size: 5).swatches
+```
 
 ## Development
 

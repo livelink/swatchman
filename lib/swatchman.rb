@@ -1,6 +1,5 @@
-require "swatchman/version"
+require 'swatchman/version'
+require 'swatchman/image'
 
 module Swatchman
-  class Error < StandardError; end
-  # Your code goes here...
 end
