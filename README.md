@@ -26,6 +26,7 @@ Or install it yourself as:
 
 Swatchman will return 3 swatches by default. Specify the `size` named parameter when calling the `palette` method to adjust the number of swatches returned.
 
+`swatch` has a method for calculating the percentage which recieves one paramater being the `total` this can be retrieved through `palette.total`.
 ### From a URL
 
 ```ruby
