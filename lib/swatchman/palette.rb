@@ -30,7 +30,5 @@ module Swatchman
         Swatch.new(color, frequency.to_i)
       end
     end
-    
-
   end
 end
