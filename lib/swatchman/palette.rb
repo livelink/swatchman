@@ -15,6 +15,10 @@ module Swatchman
       end.reverse.slice(0, size)
     end
 
+    def total
+      @total ||= histogram_swatches.map(&:frequency).reduce(:+).to_f
+    end
+    
     private
 
     attr_reader :histogram
@@ -27,8 +31,6 @@ module Swatchman
       end
     end
     
-    def total
-      @total ||= histogram_swatches.map(&:frequency).reduce(:+).to_f
-    end
+
   end
 end

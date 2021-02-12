@@ -44,4 +44,24 @@ class SwatchmanTest < Swatchman::Test
     assert_equal '#b2915f', swatches[4].color
     assert_equal 7870, swatches[4].frequency
   end
+
+  test "can find colours on a colour rich image" do
+    palette = Swatchman::Image.new(fixture('baloon.jpg')).palette(size: 10)
+    swatches = palette.swatches
+
+    assert_equal 10, palette.size
+    assert_equal 10, swatches.size
+
+    assert_equal '#4e77d3', swatches[0].color
+    assert_equal 57.34449159201635, swatches[0].percentage(palette.total)
+
+    assert_equal '#34394b', swatches[1].color
+    assert_equal 7.377023416627377, swatches[1].percentage(palette.total)
+    
+    assert_equal '#e6cf46', swatches[2].color
+    assert_equal 5.8329404369008335, swatches[2].percentage(palette.total)
+    
+    assert_equal '#383ba6', swatches[3].color
+    assert_equal 5.407983655508408, swatches[3].percentage(palette.total)
+  end
 end
